@@ -1,5 +1,7 @@
 # turn-order-tracker
 
+Nuxt socket.io https://github.com/richardeschloss/nuxt-socket-io#readme
+
 ## Build Setup
 
 ```bash

@@ -23,13 +23,24 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/composition-api'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-socket-io',
   ],
+  io: {
+    // module options
+    sockets: [
+      {
+        name: 'main',
+        url: 'http://localhost:3000',
+      },
+    ],
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
