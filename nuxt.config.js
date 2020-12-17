@@ -10,6 +10,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  env: {
+    HOST: process.env.HOST || 'http://localhost',
+    PORT: process.env.PORT || '3000',
+    baseUrl: `${this.HOST}:${this.PORT}`,
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
@@ -23,7 +29,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/composition-api'
+    '@nuxtjs/composition-api',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -37,7 +43,7 @@ export default {
     sockets: [
       {
         name: 'main',
-        url: 'http://localhost:3000',
+        url: `${process.env.SOCKET_HOST}:${process.env.SOCKET_PORT}`,
       },
     ],
   },

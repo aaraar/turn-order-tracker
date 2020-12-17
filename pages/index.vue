@@ -2,6 +2,7 @@
   <div class="container">
     <div>
       <Logo />
+      <ControllerSocket />
       <h1 class="title">turn-order-tracker</h1>
       <div class="links">
         <a
@@ -26,7 +27,10 @@
 </template>
 
 <script>
-export default {}
+import ControllerSocket from '../components/ControllerSocket'
+export default {
+  components: { ControllerSocket },
+}
 </script>
 
 <style>
