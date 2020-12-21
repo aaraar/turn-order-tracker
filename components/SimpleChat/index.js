@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 import usernameGenerator from "username-generator"
 import { Button, Input } from 'reactstrap';
 
-const ENDPOINT = process.env.SOCKET_IO_INSTANCE;
+const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
 
 export default function SimpleChat() {
