@@ -3,6 +3,7 @@ import socketIOClient from "socket.io-client";
 import usernameGenerator from "username-generator"
 import { Button, Input } from 'reactstrap';
 
+import Test from "../atoms/Test"
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
 
@@ -61,6 +62,10 @@ export default function SimpleChat() {
         })}
       </tbody>
     </table>
+    
+    {/* Custom Component Test */}
+    <Test>Hello World</Test>
+
     <h3 className="d-flex justify-content-center"> User : {loggedUser?.userName} </h3>
     <div style={{ borderStyle: "inset" }}>
       <h2 className="d-flex justify-content-center"> Chat </h2>
