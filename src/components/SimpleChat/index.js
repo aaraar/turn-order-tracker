@@ -3,7 +3,8 @@ import socketIOClient from "socket.io-client";
 import usernameGenerator from "username-generator"
 import { Button, Input } from 'reactstrap';
 
-import Test from "../atoms/Test"
+import Test from "@/atoms/Test"
+
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
 
