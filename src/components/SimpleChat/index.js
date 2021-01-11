@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import socketIOClient from "socket.io-client";
-import usernameGenerator from "username-generator"
+import { useState, useEffect } from 'react';
+import socketIOClient from 'socket.io-client';
+import usernameGenerator from 'username-generator';
 import { Button, Input } from 'reactstrap';
 
-import Test from "../atoms/Test"
+import Test from '../atoms/Test';
+
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
 
 export default function SimpleChat() {
-  
   const [user, setUser] = useState({
     usersList: null
   });
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState('');
   const [recMsg, setRecMsg] = useState({
     listMsg: []
   });
@@ -20,18 +20,18 @@ export default function SimpleChat() {
 
   useEffect(() => {
     // subscribe a new user
-    socket.emit("login", usernameGenerator.generateUsername());
+    socket.emit('login', usernameGenerator.generateUsername());
     // list of connected users
-    socket.on("users", data => {
-      setUser({ usersList: JSON.parse(data) })
+    socket.on('users', (data) => {
+      setUser({ usersList: JSON.parse(data) });
     });
-      // get the logged user
-  socket.on("connecteduser", data => {
-    setLoggedUser(JSON.parse(data));
-  });
+    // get the logged user
+    socket.on('connecteduser', (data) => {
+      setLoggedUser(JSON.parse(data));
+    });
 
     // we get the messages
-    socket.on("getMsg", data => {
+    socket.on('getMsg', (data) => {
       let listMessages = recMsg.listMsg;
       listMessages.push(JSON.parse(data));
       setRecMsg({ listMsg: listMessages });
@@ -40,41 +40,68 @@ export default function SimpleChat() {
 
   // to send a message
   const sendMessage = () => {
-    socket.emit("sendMsg", JSON.stringify({ id: loggedUser.id, msg: msg }));
-  }
+    socket.emit('sendMsg', JSON.stringify({ id: loggedUser.id, msg: msg }));
+  };
 
   return (
     <div>
-    <h3 className="d-flex justify-content-center"> Connected users : {user.usersList?.length} </h3>
-    <table className="table">
-      <thead>
-        <tr>
-          <th> User name </th>
-          <th> Connection Date </th>
-        </tr>
-      </thead>
-      <tbody>
-        {user.usersList?.map(user => {
-          return (<tr key={user.id}>
-            <td> {user.userName} </td>
-            <td> {user.connectionTime} </td>
-          </tr>)
-        })}
-      </tbody>
-    </table>
-    
-    {/* Custom Component Test */}
-    <Test>Hello World</Test>
+      <h3 className="d-flex justify-content-center">
+        {' '}
+        Connected users : {user.usersList?.length}{' '}
+      </h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th> User name</th>
+            <th> Connection Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {user.usersList?.map((user) => {
+            return (
+              <tr key={user.id}>
+                <td> {user.userName} </td>
+                <td> {user.connectionTime} </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
 
-    <h3 className="d-flex justify-content-center"> User : {loggedUser?.userName} </h3>
-    <div style={{ borderStyle: "inset" }}>
-      <h2 className="d-flex justify-content-center"> Chat </h2>
-      {recMsg.listMsg?.map((msgInfo, index) => { return (<div className="d-flex justify-content-center" key={index}> <b>{msgInfo.userName} </b> :  {msgInfo.msg} <small style={{ marginLeft: "18px", color: "blue", marginTop: "5px" }}> {msgInfo.time} </small> </div>) })}
+      {/* Custom Component Test */}
+      <Test>Hello World</Test>
+
+      <h3 className="d-flex justify-content-center"> User : {loggedUser?.userName} </h3>
+      <div style={{ borderStyle: 'inset' }}>
+        <h2 className="d-flex justify-content-center"> Chat </h2>
+        {recMsg.listMsg?.map((msgInfo, index) => {
+          return (
+            <div className="d-flex justify-content-center" key={index}>
+              <b>{msgInfo.userName} </b> : {msgInfo.msg}{' '}
+              <small style={{ marginLeft: '18px', color: 'blue', marginTop: '5px' }}>
+                {' '}
+                {msgInfo.time}{' '}
+              </small>
+            </div>
+          );
+        })}
+      </div>
+      <div className="d-flex justify-content-center">
+        <Input
+          style={{ width: '300px', display: 'inline' }}
+          id="inputmsg"
+          onChange={(event) => setMsg(event.target.value)}
+        />
+        <Button
+          className="btn btn-info"
+          id="btnmsg"
+          onClick={() => {
+            sendMessage();
+          }}>
+          {' '}
+          Send{' '}
+        </Button>
+      </div>
     </div>
-    <div className="d-flex justify-content-center">
-      <Input style={{ width: "300px", display: "inline" }} id="inputmsg" onChange={(event) => setMsg(event.target.value)} />
-      <Button className="btn btn-info" id="btnmsg" onClick={() => { sendMessage() }}> Send </Button>
-    </div>
-  </div >
-  )
+  );
 }
