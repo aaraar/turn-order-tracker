@@ -1,13 +1,11 @@
-import {useState, useEffect} from "react";
-import socketIOClient from "socket.io-client";
-import usernameGenerator from "username-generator"
-import {button, Input} from 'reactstrap';
+import { useState, useEffect } from 'react';
+import socketIOClient from 'socket.io-client';
+import usernameGenerator from 'username-generator';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
 
 export default function TurnOrder() {
-
   const [user, setUser] = useState({
     usersList: null
   });
@@ -15,29 +13,26 @@ export default function TurnOrder() {
     unitList: []
   });
   const [newUnit, setNewUnit] = useState({
-    name: "",
+    name: '',
     initiative: 0
-  });
-  const [recMsg, setRecMsg] = useState({
-    listMsg: []
   });
   const [loggedUser, setLoggedUser] = useState();
 
   useEffect(() => {
     // subscribe a new user
-    socket.emit("login", usernameGenerator.generateUsername());
+    socket.emit('login', usernameGenerator.generateUsername());
     // list of connected users
-    socket.on("users", data => {
-      setUser({usersList: JSON.parse(data)})
+    socket.on('users', (data) => {
+      setUser({ usersList: JSON.parse(data) });
     });
     // get the logged user
-    socket.on("connecteduser", data => {
+    socket.on('connecteduser', (data) => {
       setLoggedUser(JSON.parse(data));
     });
 
     // we get the units
-    socket.on("units", data => {
-      setUnits({unitList: JSON.parse(data)});
+    socket.on('units', (data) => {
+      setUnits({ unitList: JSON.parse(data) });
     });
 
     // // we get a new unit
@@ -56,85 +51,125 @@ export default function TurnOrder() {
     // });
   }, []);
 
-  // to send a message
-  const sendMessage = () => {
-    socket.emit("sendMsg", JSON.stringify({id: loggedUser.id, msg: msg}));
-  }
-
   // to add a unit
   const addUnit = () => {
     if (newUnit.name) {
-      socket.emit("addUnit", JSON.stringify({id: loggedUser.id, ...newUnit}));
-      setNewUnit({...newUnit, name: ""})
+      socket.emit('addUnit', JSON.stringify({ id: loggedUser.id, ...newUnit }));
+      setNewUnit({ ...newUnit, name: '' });
     }
-  }
+  };
 
   // to remove a unit
   const removeUnit = (unit) => {
-    socket.emit("removeUnit", JSON.stringify(unit));
-  }
+    socket.emit('removeUnit', JSON.stringify(unit));
+  };
 
   // to remove a unit
   const sortUnits = (strategy) => {
-    socket.emit("sortUnits", strategy);
-  }
+    socket.emit('sortUnits', strategy);
+  };
 
   const logValue = (value) => {
-    console.log(value)
-  }
+    console.log(value);
+  };
 
   return (
     <div>
-      <h3 className="d-flex justify-content-center"> Connected users : {user.usersList?.length} </h3>
+      <h3 className="d-flex justify-content-center">
+        {' '}
+        Connected users : {user.usersList?.length}{' '}
+      </h3>
       <table className="table">
         <thead>
-        <tr>
-          <th> User name</th>
-          <th> Connection Date</th>
-        </tr>
+          <tr>
+            <th> User name</th>
+            <th> Connection Date</th>
+          </tr>
         </thead>
         <tbody>
-        {user.usersList?.map(user => {
-          return (<tr key={user.id}>
-            <td> {user.userName} </td>
-            <td> {user.connectionTime} </td>
-          </tr>)
-        })}
+          {user.usersList?.map((user) => {
+            return (
+              <tr key={user.id}>
+                <td> {user.userName} </td>
+                <td> {user.connectionTime} </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <h3 className="d-flex justify-content-center"> User : {loggedUser?.userName} </h3>
       <div>
         <h2 className="d-flex justify-content-center"> Turn Order </h2>
-        <button className="btn btn-info" id="btnmsg" onClick={() => {
-          sortUnits('desc');
-        }}> Sort Descending </button>
+        <button
+          className="btn btn-info"
+          id="btnmsg"
+          onClick={() => {
+            sortUnits('desc');
+          }}>
+          {' '}
+          Sort Descending{' '}
+        </button>
         <ul>
           {units.unitList?.map((unit, index) => {
-            return (<div className="d-flex justify-content-center" key={index}>
-              <b>{unit.name} </b>
-              :
-              <small style={{marginLeft: "18px", color: "blue", marginTop: "5px"}}> {unit.initiative} </small>
-              <button onClick={() => {removeUnit(unit)}}>&times;</button>
-            </div>)
+            return (
+              <div className="d-flex justify-content-center" key={index}>
+                <b>{unit.name} </b>:
+                <small style={{ marginLeft: '18px', color: 'blue', marginTop: '5px' }}>
+                  {' '}
+                  {unit.initiative}{' '}
+                </small>
+                <button
+                  onClick={() => {
+                    removeUnit(unit);
+                  }}>
+                  &times;
+                </button>
+              </div>
+            );
           })}
-          <label>Name
-            <input style={{width: "300px", display: "inline"}} value={newUnit.name} id="newUnitName"
-                   onChange={(event) => setNewUnit({...newUnit, name: String(event.target.value)})}/>
+          <label>
+            Name
+            <input
+              style={{ width: '300px', display: 'inline' }}
+              value={newUnit.name}
+              id="newUnitName"
+              onChange={(event) => setNewUnit({ ...newUnit, name: String(event.target.value) })}
+            />
           </label>
-          <label>Initiative
-            <input type="number" style={{width: "300px", display: "inline"}} value={newUnit.initiative} id="newUnitName"
-                   onChange={(event) => setNewUnit({...newUnit, initiative: Number(event.target.value)})}/>
+          <label>
+            Initiative
+            <input
+              type="number"
+              style={{ width: '300px', display: 'inline' }}
+              value={newUnit.initiative}
+              id="newUnitName"
+              onChange={(event) =>
+                setNewUnit({ ...newUnit, initiative: Number(event.target.value) })
+              }
+            />
           </label>
         </ul>
       </div>
       <div className="d-flex justify-content-center">
-        <button className="btn btn-info" id="btnmsg" onClick={() => {
-          addUnit()
-        }}> Send </button>
-        <button className="btn btn-info" id="btnmsg" onClick={() => {
-          logValue(units)
-        }}> Log Units </button>
+        <button
+          className="btn btn-info"
+          id="btnmsg"
+          onClick={() => {
+            addUnit();
+          }}>
+          {' '}
+          Send{' '}
+        </button>
+        <button
+          className="btn btn-info"
+          id="btnmsg"
+          onClick={() => {
+            logValue(units);
+          }}>
+          {' '}
+          Log Units{' '}
+        </button>
       </div>
     </div>
-  )
+  );
 }
