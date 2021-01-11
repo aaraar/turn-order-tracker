@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import SimpleChat from '../components/SimpleChat';
+import TurnOrder from '../components/organisms/TurnOrder';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Turn Order Tracker!</a>
         </h1>
-        <SimpleChat />
+        <TurnOrder />
       </main>
 
       <footer className={styles.footer}>
