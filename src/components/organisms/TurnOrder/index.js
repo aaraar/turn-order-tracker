@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import usernameGenerator from 'username-generator';
 

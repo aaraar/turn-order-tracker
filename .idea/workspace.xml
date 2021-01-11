@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26459c40-fde1-4dff-9830-f55b6e6434c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1mwBMEqGcUHqdleFUhwpzi6PAGd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/prettier/esm" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.NodeInterpreter" value="project" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="\\wsl$\Ubuntu-20.04\home\bazottie\Sites\turn-order-tracker\node_modules\prettier\esm" />
+    <property name="run.prettier.on.save" value="true" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26459c40-fde1-4dff-9830-f55b6e6434c1" name="Default Changelist" comment="" />
+      <created>1610394727401</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1610394727401</updated>
+      <workItem from="1610394730402" duration="6929000" />
+    </task>
+    <task id="LOCAL-00001" summary="Merged main for updated structure">
+      <created>1610401663384</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1610401663384</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated file structure with Turn Order componennt">
+      <created>1610401864816</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610401864816</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.eslintignore" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merged main for updated structure" />
+    <MESSAGE value="Updated file structure with Turn Order componennt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated file structure with Turn Order componennt" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="991" y="469" key="#Node.js_and_NPM" timestamp="1610396605645">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="991" y="469" key="#Node.js_and_NPM/0.0.2560.1400@0.0.2560.1400" timestamp="1610396605645" />
+    <state x="1026" y="499" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610396118977">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1026" y="499" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1610396118977" />
+    <state x="1059" y="454" key="FileChooserDialogImpl" timestamp="1610399554212">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1059" y="454" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1610399554212" />
+    <state x="917" y="460" key="MultipleFileMergeDialog" timestamp="1610401564146">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="917" y="460" key="MultipleFileMergeDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1610401564146" />
+    <state x="814" y="318" key="SettingsEditor" timestamp="1610395842950">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="814" y="318" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1610395842950" />
+    <state x="987" y="284" width="585" height="831" key="find.popup" timestamp="1610399562792">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="987" y="284" width="585" height="831" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1610399562792" />
+  </component>
+</project>
