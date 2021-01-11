@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import TurnOrder from '../components/organisms/TurnOrder';
-import styles from '../styles/Home.module.css';
+import TurnOrder from '@/components/organisms/TurnOrder';
+import styles from '@/styles/Home.module.css';
 
 export default function Home() {
   return (
