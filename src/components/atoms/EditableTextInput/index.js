@@ -1,8 +1,7 @@
-import styles from './Input.module.scss';
-
 const EditableTextInput = ({
   id,
   type,
+  className,
   propKey = 'name',
   propType = String,
   value,
@@ -10,12 +9,12 @@ const EditableTextInput = ({
   children
 }) => {
   return (
-    <label className={styles.Input}>
+    <label className={className}>
       {children && children}
       <input
         type={type}
         id={id}
-        value={value}
+        value={value[propKey]}
         onChange={(event) => setValue({ ...value, [propKey]: propType(event.target.value) })}
       />
     </label>

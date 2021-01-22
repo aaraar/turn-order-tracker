@@ -1,16 +1,38 @@
 .AddEntity {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  align-items: center;
+  place-items: center;
   gap: 20px;
   background-color: var(--grey-800);
   padding: 10px 20px;
   border-radius: 5px;
   width: 100%;
+  margin: 56px 0 0;
+
+  label {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    place-items: center;
+  }
 
   input {
-    background: none;
     color: var(--text-color);
+    background-color: var(--black-100);
     border: none;
+    line-height: 2;
+    padding: 2px 4px;
+
+    border-radius: 4px;
+  }
+
+  .input-text input {
+    max-width: 100%;
+  }
+
+  .input-number {
+    input {
+      max-width: 5ch;
+    }
   }
 }

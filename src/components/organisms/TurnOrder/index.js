@@ -3,13 +3,11 @@ import socketIOClient from 'socket.io-client';
 import usernameGenerator from 'username-generator';
 
 // Components
-import Button from '@/components/molecules/Button';
-import chevron_down from '@/icons/expand_more.svg';
 import UserList from '@/molecules/UserList';
 
 // Styles
 import styles from './Styles.module.scss';
-import AddEntity from '@/components/molecules/AddEntity';
+import EntityList from '../EntityList';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
@@ -45,54 +43,17 @@ export default function TurnOrder() {
     });
   }, []);
 
-  // to remove a unit
-  const removeUnit = (unit) => {
-    socket.emit('removeUnit', JSON.stringify(unit));
-  };
-
-  // to remove a unit
-  const sortUnits = (strategy) => {
-    socket.emit('sortUnits', strategy);
-  };
-
   return (
     <div className={styles.TurnOrder}>
       <UserList users={users} loggedUser={loggedUser} />
 
-      <div>
-        <h2> Turn Order </h2>
-        <Button
-          id="btnmsg"
-          icon={chevron_down}
-          onClick={() => {
-            sortUnits('desc');
-          }}>
-          Sort Descending
-        </Button>
-        <ul>
-          {units.unitList?.map((unit, index) => {
-            return (
-              <div key={index}>
-                <p>
-                  <span>{unit.name}</span> : {unit.initiative}
-                </p>
-                <Button
-                  onClick={() => {
-                    removeUnit(unit);
-                  }}>
-                  &times;
-                </Button>
-              </div>
-            );
-          })}
-          <AddEntity
-            newUnit={newUnit}
-            setNewUnit={setNewUnit}
-            socket={socket}
-            loggedUser={loggedUser}
-          />
-        </ul>
-      </div>
+      <EntityList
+        socket={socket}
+        loggedUser={loggedUser}
+        units={units}
+        newUnit={newUnit}
+        setNewUnit={setNewUnit}
+      />
     </div>
   );
 }

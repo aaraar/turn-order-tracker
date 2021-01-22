@@ -16,8 +16,9 @@ export default function AddEntity({ setNewUnit, newUnit, socket, loggedUser }) {
   return (
     <div className={styles.AddEntity}>
       <EditableTextInput
+        className={styles['input-text']}
         type="text"
-        value={newUnit.name || ''}
+        value={newUnit}
         setValue={setNewUnit}
         propKey="name"
         propType={String}
@@ -25,12 +26,13 @@ export default function AddEntity({ setNewUnit, newUnit, socket, loggedUser }) {
         Name
       </EditableTextInput>
       <EditableTextInput
+        className={styles['input-number']}
         type="number"
-        value={newUnit.initiative || 0}
+        value={newUnit}
         setValue={setNewUnit}
         propKey="initiative"
         propType={Number}
-        id="newUnitName">
+        id="newUnitInitiative">
         Initiative
       </EditableTextInput>
       <Button
@@ -39,7 +41,7 @@ export default function AddEntity({ setNewUnit, newUnit, socket, loggedUser }) {
         onClick={() => {
           addNewUnit();
         }}>
-        Send
+        Add
       </Button>
     </div>
   );
