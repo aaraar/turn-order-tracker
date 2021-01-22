@@ -1,0 +1,16 @@
+.AddEntity {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--grey-800);
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+
+  input {
+    background: none;
+    color: var(--text-color);
+    border: none;
+  }
+}
