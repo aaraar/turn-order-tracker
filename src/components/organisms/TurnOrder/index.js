@@ -2,7 +2,7 @@ import Icon from '@/atoms/Icon';
 import { useEffect, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import usernameGenerator from 'username-generator';
-import styles from './Styles.module.css';
+import styles from './Styles.module.scss';
 import chevron_left from '@/icons/chevron_left.svg';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
