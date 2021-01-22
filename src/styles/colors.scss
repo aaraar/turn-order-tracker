@@ -1,0 +1,32 @@
+:root {
+  //text
+  --text-color: var(--white);
+  --background-color: var(--black);
+
+  // Blue
+  --blue-100: #84bff4;
+  --blue-400: #4d98dd;
+  --blue-800: #1164b0;
+
+  // Red
+  --red-100: #f39580;
+  --red-400: #e25454;
+  --red-800: #a51515;
+
+  // Green
+  --green-100: #74d689;
+  --green-400: #47bc61;
+  --green-800: #0c7323;
+
+  // Grey
+  --grey-100: #f5f5f5;
+  --grey-400: #c4c4c4;
+  --grey-800: #8d8d8d;
+
+  // White & black
+  --white: #ffffff;
+  --black: #222222;
+  --black-100: #3c3c3c;
+  --black-400: #2c2c2c;
+  --black-800: #151515;
+}
