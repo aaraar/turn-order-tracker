@@ -1,4 +1,4 @@
-import styles from './Styles.module.css';
+import styles from './Styles.module.scss';
 
 export default function Icon({ icon }) {
   return (
