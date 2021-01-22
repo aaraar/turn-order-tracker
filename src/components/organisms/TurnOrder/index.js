@@ -1,6 +1,9 @@
+import Icon from '@/atoms/Icon';
 import { useEffect, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import usernameGenerator from 'username-generator';
+import styles from './Styles.module.css';
+import chevron_left from '@/icons/chevron_left.svg';
 
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_IO_INSTANCE;
 const socket = socketIOClient(ENDPOINT);
@@ -75,10 +78,10 @@ export default function TurnOrder() {
 
   return (
     <div>
-      <h3 className="d-flex justify-content-center">
-        {' '}
-        Connected users : {user.usersList?.length}{' '}
-      </h3>
+      <div className={styles.icon_test}>
+        <Icon icon={chevron_left} />
+      </div>
+      <h3 className="d-flex justify-content-center">Connected users : {user.usersList?.length}</h3>
       <table className="table">
         <thead>
           <tr>

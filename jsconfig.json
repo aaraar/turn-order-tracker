@@ -8,7 +8,9 @@
       "@/organisms/*": ["src/components/organisms/*"],
       "@/pages/*": ["src/pages/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/public/*": ["public/*"]
+      "@/public/*": ["public/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/icons/*": ["src/assets/icons/*"]
     }
   }
 }
